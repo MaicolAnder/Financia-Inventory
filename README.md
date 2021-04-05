@@ -2,3 +2,11 @@
 Sistema de ventas y facturación Financia-Inventory
 Version generada, v2 estructurada bajo codeigniter
 php Version <= 7.3
+
+
+Margun es un emprendimiento de desarrollo de software y análisis de grandes volúmenes de datos, enfocado específicamente en la construcción y diseño de servicios de alta tecnología para procesos de facturación, inventario, contabilidad y gestión de contactos por medio de una aplicación basada en la nube que denominamos "Financia", disponible tanto para grandes empresas, pymes o usuarios individuales. Apoyando a las organizaciones o usuarios no únicamente en el proceso operativo y técnico como lo son los puntos de ventas, reportes contables y control de inventario, si no, en el análisis de los datos mediante técnicas de minería de datos, big data e inteligencia de negocios que permitan a los usuarios de la aplicación la toma correcta de decisiones mediante la generación autónoma de proyecciones, tableros de indicadores clave de desempeño, predicción de flujos de inventario, clasificación y segmentación de clientes.
+Finalmente, los administradores y propietarios de negocios, podrán invertir su tiempo y esfuerzo en lo que realmente importa: desarrollar su negocio con el servicio de "Financia" como mano derecha para la toma de decisiones efectivas y oportunas.
+
+
+Que aporta Financia
+Los servicios ofrecidos por Margun Software, permiten implementar múltiples puntos de venta según sucursal en una base de datos unificada, capturando datos que permitan implementar inteligencia de negocios y big data en áreas como el control de flujos de inventario, que posibilita realizar compras a proveedores y abastecimiento de los puntos de manera controlada y precisa,  también permite una segmentación de clientes para sistemas de recomendación de ofertas, análisis de un producto en específico o de múltiples productos determinando proyecciones de movimiento, posibilita el análisis de mercado y análisis financiero potenciando la toma de decisiones basadas en datos, permite la unificación de información de todos los actores del negocio, como clientes, empleados y proveedores mostrando el rendimiento de cada actor involucrado, todo esto conlleva a que las decisiones tomadas sean más precisas y acertadas, reduciendo costos por posibles errores y aumentando ventas gracias al análisis de los datos.

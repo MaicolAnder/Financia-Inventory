@@ -174,7 +174,7 @@
                                 <td class="text-center align-middle color-danger delete"><i class="fas fa-times-circle" title="Eliminar de la lista"></i></td>
                                 <td>
                                     <input type="hidden" name="Id_Ite[]" id="Id_Ite_<?=$k->Id_kar;?>" value="<?=$k->Id_Ite;?>" required>
-                                    <input class="form-control item cell-formar-sum" type="search" id="item_value_<?=$k->Id_kar;?>" name="item_value[]" placeholder="Nombre o código de item" value="<?=$this->Items_model->get_by_id($k->Id_Ite)->Nombre_Ite;?>" required>
+                                    <input class="form-control item cell-formar-sum" type="search" id="item_value_<?=$k->Id_kar;?>" name="item_value[]" placeholder="Nombre o código de item" autocomplete="off" value="<?=$this->Items_model->get_by_id($k->Id_Ite)->Nombre_Ite;?>" required>
                                 </td>
                                 <?php if ($type == 'expenses' || $type == 'purchase_order') { ?>
                                 <td>
@@ -238,7 +238,7 @@
                             <td class="text-center align-middle color-danger delete"><i class="fas fa-times-circle" title="Eliminar de la lista"></i></td>
                             <td>
                                 <input type="hidden" name="Id_Ite[]" id="Id_Ite_0" value="" required>
-                                <input class="form-control item cell-formar-sum" type="search" id="item_value_0" name="item_value[]" placeholder="Nombre o código de item" value="<?=NULL?>" required>
+                                <input class="form-control item cell-formar-sum" type="search" id="item_value_0" name="item_value[]" placeholder="Nombre o código de item" autocomplete="off" value="<?=NULL?>" required>
                             </td>
                             <?php if ($type == 'expenses' || $type == 'purchase_order') { ?>
                             <td>
@@ -515,7 +515,7 @@
             '<td class="text-center align-middle color-danger delete"><i class="fas fa-times-circle" title="Eliminar de la lista"></i></td>'+
             '<td>'+
                 '<input type="hidden" name="Id_Ite[]" id="Id_Ite_'+i+'" value="" required>'+
-                '<input class="form-control item cell-formar-sum" type="search" id="item_value_'+i+'" name="item_value[]" placeholder="Nombre o código de item" value="<?=NULL?>" required>'+
+                '<input class="form-control item cell-formar-sum" type="search" id="item_value_'+i+'" name="item_value[]" placeholder="Nombre o código de item" autocomplete="off" value="<?=NULL?>" required>'+
             '</td>';
         var body1 = '<td>'+
             '<select name="Id_Med[]" id="Id_Med_'+i+'" class="form-control selectpicker cell-formar-sum" data-live-search="true">'+

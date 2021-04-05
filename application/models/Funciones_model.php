@@ -74,6 +74,10 @@ class Funciones_model extends CI_Model
         return $total;
     }
 
+    public function get_all_income()
+    {
+        return null;
+    }
     function getLike_contactos($like_array, $type)
     {
         $select = "persona.Id_Per AS id,
