@@ -355,7 +355,7 @@ function ListadoCuentas($id_selected='', $where=[], $js = false)
         }
        
    }
-   $ci->db->group_by('Id_CueTip');
+   // $ci->db->group_by('Id_CueTip');
    $data = $ci->db->get('cuentas')->result();
    foreach ($data as $o ) {
        echo ($js==false) ?  '<optgroup label="'.strtoupper($o->Nombre_Cue).'">' : '\'<optgroup label="'.strtoupper($o->Nombre_Cue).'">\'+';

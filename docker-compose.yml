@@ -1,0 +1,44 @@
+version: "3"
+services:
+  app_inventory:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - internal
+    ports: 
+      - "8000:80"
+    depends_on:
+      - mysql_db
+    container_name: app-financia-inventory
+    
+  mysql_db:
+    build: 
+      context: .
+      dockerfile: Dockerfile.db
+    environment:
+      MYSQL_ROOT_PASSWORD: financia_root
+      MYSQL_DATABASE: margunsoft_financia_v2
+    ports:
+      - 3306:3306
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - internal
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 9001:80
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      - internal
+    depends_on:
+      - mysql_db
+      
+networks:
+  internal:
+    driver: bridge
+volumes:
+  db_data:

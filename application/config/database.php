@@ -75,14 +75,14 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'mysql_db',
 	'username' => 'root',
-	'password' => '',
+	'password' => 'financia_root',
 	'database' => 'margunsoft_financia_v2',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
+	'db_debug' => TRUE, /*-- (ENVIRONMENT !== 'production'),*/
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',
