@@ -301,6 +301,7 @@ class Bancos_model extends CI_Model
         }
 		$this->db->where($this->table.'.Primary_Usu', $this->session->userdata('Primary_Usu'));
         $this->db->delete($this->table);
+        
         return $id;
     }
 	

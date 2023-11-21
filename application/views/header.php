@@ -55,7 +55,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         </p>
                     </div>
                 </h3>
-                <strong><img src="<?php echo base_url('assets/img/logos/facturacion_Financia') ?>.png" style="width: 55px;"></strong>
+                <strong onclick="window.location.href='<?php echo site_url(); ?>'"><img src="<?php echo base_url('assets/img/logos/facturacion_Financia') ?>.png" style="width: 55px;"></strong>
             </div>
 
             <ul class="list-unstyled components nav navbar-nav">

@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group col-xs-12 col-sm-6 col-md-3 col-lg-3">
                     <label for="Id_Mar"><?=t('Id_Mar'); ?> <?php echo form_error('Id_Mar') ?></label>
-                    <select name="Id_Mar" id="Id_Mar" class="form-control selectpicker" data-live-search="true" data-header='<button class="btn btn-link" onclick="Add_Id_Met()"><i class="fas fa-plus-circle"></i> Nueva registro</button>' data-size="10">
+                    <select name="Id_Mar" id="Id_Mar" class="form-control selectpicker" data-live-search="true" data-header='<button class="btn btn-link" onclick="AddIdMar()"><i class="fas fa-plus-circle"></i> Nueva registro</button>' data-size="10">
                         <option value="">Seleccione</option>
                         <?php
                         foreach($all_marcas as $marcas)
@@ -54,7 +54,7 @@
                 
                 <div class="form-group col-xs-12 col-sm-6 col-md-3 col-lg-3">
                     <label for="Id_Med"><?=t('Id_Med'); ?> <?php echo form_error('Id_Med') ?></label>
-                    <select name="Id_Med" id="Id_Med" class="form-control selectpicker" data-live-search="true" data-header='<button class="btn btn-link" onclick="Add_Id_Met()"><i class="fas fa-plus-circle"></i> Nueva registro</button>' data-size="10">
+                    <select name="Id_Med" id="Id_Med" class="form-control selectpicker" data-live-search="true" data-header='<button class="btn btn-link" onclick="AddIdMed()"><i class="fas fa-plus-circle"></i> Nueva registro</button>' data-size="10">
 
                         <option value="">Seleccione</option>
                         <?php
@@ -68,7 +68,7 @@
                 </div>
                 <div class="form-group col-xs-12 col-sm-6 col-md-3 col-lg-3">
                     <label for="Id_CatIte"><?=t('Id_CatIte'); ?> <?php echo form_error('Id_CatIte') ?></label>
-                    <select name="Id_CatIte" id="Id_CatIte" class="form-control selectpicker" data-live-search="true" data-header='<button class="btn btn-link" onclick="Add_Id_Met()"><i class="fas fa-plus-circle"></i> Nueva registro</button>' data-size="10">
+                <select name="Id_CatIte" id="Id_CatIte" class="form-control selectpicker" data-live-search="true" data-header='<button class="btn btn-link" onclick="addIdCatIte()"><i class="fas fa-plus-circle"></i> Nueva registro</button>' data-size="10">
                         <option value="">Seleccione</option>
                         <?php
                         foreach($all_categoria_item as $categoria_item)
@@ -144,8 +144,8 @@
                             <thead>
                                 <th>#</th>
                                 <th><?=t('Nombre_ListPre');?></th>
-                                <th><?=t('Valor_Incremento');?></th>
-                                <th><?=t('Porcentaje_Incremento');?></th>
+                                <!--<th><?=t('Valor_Incremento');?></th>
+                                 <th><?=t('Porcentaje_Incremento');?></th> -->
                                 <th><?=t('PrecioVenta');?> Sin <?=t('Id_Imp'); ?></th>
                                 <th>Precio Final</th>
                             </thead>
@@ -170,8 +170,8 @@
                                         <input type="hidden" name="Id_ListPre[]" value="<?=$key->Id_ListPre?>">
                                     </td>
                                     <td><?=$key->Nombre_ListPre;?></td>
-                                    <td class="text-right"><?=number_format($key->Valor_Incremento,2);?></td>
-                                    <td class="text-right"><?=$key->Porcentaje_Incremento;?> %</td>
+                                    <!--<td class="text-right"><?=number_format($key->Valor_Incremento,2);?></td>
+                                    <td class="text-right"><?=$key->Porcentaje_Incremento;?> %</td>-->
                                     <td class="text-right"><input class="form-control text-right precio_venta" type="number" step="any" min="0" name="PrecioVenta[]" id="PrecioVenta_<?=$counter;?>" value="<?=$val;?>" placeholder="<?=t('PrecioVenta')?>"></td>
                                     <td>
                                         <input class="form-control" type="text" name="precioFinal" id="PrecioVentaFinal_<?=$counter;?>" readonly></td>
@@ -216,7 +216,7 @@
         		
                 <div class="form-group col-xs-12 col-sm-6 col-md-3 col-lg-3">
                     <label for="Id_Bod"><?=t('Id_Bod'); ?> <?php echo form_error('Id_Bod') ?></label>
-                    <select name="Id_Bod" id="Id_Bod" class="form-control selectpicker" data-live-search="true" data-header='<button class="btn btn-link" onclick="Add_Id_Met()"><i class="fas fa-plus-circle"></i> Nueva registro</button>' data-size="10">
+                    <select name="Id_Bod" id="Id_Bod" class="form-control selectpicker" data-live-search="true" data-size="10">
                         <option value="">Seleccione</option>
                         <?php
                         foreach($all_bodegas as $bodegas)
@@ -227,19 +227,22 @@
                         } ?>
                     </select>
                 </div>
-        		
+        		<!--
                 <div class="form-group col-xs-12 col-sm-6 col-md-3 col-lg-3">
                     <label for="Id_Usu"><?=t('Id_Usu'); ?> <?php echo form_error('Id_Usu') ?></label>
                     <select name="Id_Usu" id="Id_Usu" class="form-control selectpicker" data-live-search="true">
                         <option value="">Seleccione</option>
-                        <?php
+                        <?php /*
                         foreach($all_usuario as $usuario)
                         { 
                             $print_value =  $usuario->Usuario_Usu;
                             $selected = ($usuario->Id_Usu==$Id_Usu) ? 'selected':'';
                             echo '<option value="'.$usuario->Id_Usu.'"  '.$selected.'> '.$print_value.'</option>';
-                        } ?>
+                        } */?>
                     </select>
+                </div> -->
+                <div>
+                    <input type="hidden" name="Id_Usu" value="<?=$Id_Usu;?>">
                 </div>
 
                 <div class="form-group col-xs-12 col-sm-6 col-md-3 col-lg-3">
@@ -306,8 +309,71 @@
         
         
     }
-    function Add_Id_Met() {
-        alert('Este es un test');
+
+    function addIdCatIte() {
+        bootbox.prompt({
+            title: 'Nueva <?=t('Id_CatIte')?>',
+            centerVertical: true,
+            callback: function(result) {
+                save(result, 'addCategoriaItem', 'Id_CatIte');
+            }
+        });
+    }
+
+    function AddIdMed() {
+        bootbox.prompt({
+            title: 'Nueva <?=t('Id_Med')?>',
+            centerVertical: true,
+            callback: function(result) {
+                save(result, 'addMedidas', 'Id_Med');
+            }
+        });
+    }
+
+    function AddIdMar() {
+        bootbox.prompt({
+            title: 'Nueva <?=t('Id_Mar')?>',
+            centerVertical: true,
+            callback: function(result) {
+                save(result, 'addMarca', 'Id_Mar');
+            }
+        });
+    }
+
+    function save(term, type, element){
+        var datos = {
+            _type: type,
+            _term: term
+        };
+
+        var datosJSON = JSON.stringify(datos);
+
+        // Creamos un nuevo objeto XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+
+        // Configuramos la petición como POST a la URL deseada
+        xhr.open("POST", '<?=site_url('getresult/')?>'+ type, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            // Si la petición fue exitosa (estado 4) y el servidor respondió con éxito (código 200)
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Manejar la respuesta del servidor
+                response = JSON.parse(xhr.responseText);
+                if(response.error == 0){
+                    const sel = document.getElementById(element);
+
+                    const opt = document.createElement("option");
+                    opt.value = response.key;
+                    opt.text = response.value;
+                    opt.setAttribute("selected", "selected");
+                    sel.add(opt, sel.options[1]);
+                    $('#'+element).selectpicker('refresh');
+                } else {
+                    mensaje(response.mensaje);
+                }
+            }
+        };
+        xhr.send(datosJSON);
     }
 
 </script>

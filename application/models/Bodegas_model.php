@@ -303,6 +303,12 @@ class Bodegas_model extends CI_Model
         }
 		$this->db->where($this->table.'.Primary_Usu', $this->session->userdata('Primary_Usu'));
         $this->db->delete($this->table);
+        //$db_error = $this->db->error();
+        //print_r($db_error);
+        //if (!empty($db_error)) {
+        //    throw new Exception('Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message']);
+        //    return false; // unreachable return statement !!!`enter code here`
+        //}
         return $id;
     }
 	

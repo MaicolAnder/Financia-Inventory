@@ -188,7 +188,7 @@ function validar_post($post, $ArrayPos='') {
     $ci = get_instance();
 
     if (isset($_POST[$post])) { // POST Existe
-        $input = $ci->input->post($post,TRUE); // Llamar post
+        $input = $ci->input->post($post, true); // Llamar post
         if (is_array($input)) { // Es array
             $post_array = array(); // Array de retorno
             if ($ArrayPos != '') {

@@ -98,7 +98,95 @@ class Getresult extends CI_Controller
         echo json_encode($response);
     }
     
+    public function addMarca($marca = null) {
+        $response = array();
+        
+        $request_body = file_get_contents('php://input'); 
+        $data = json_decode($request_body);
+        $type = clean($data->_type);
 
+        if($type === 'addMarca'){
+            $this->load->model('Marcas_model');
+            $term = clean($data->_term);
+            $term = ucwords($term);
+            $result = $this->Marcas_model->sql("SELECT Nombre_Mar FROM marcas WHERE Nombre_Mar LIKE '%".$term."%'");
+            if($result){
+                $response = ['mensaje' => 'Ya se encuentra registrado', 'error' => -1];
+            } else {
+                $marca = [
+                    'Nombre_Mar' => $term,
+                    'Primary_Usu' => $this->session->userdata('Primary_Usu')
+                ];
+                $resultMarca = $this->Marcas_model->insert($marca);
+                $response = ['mensaje' => 'Registro ' . $term . ' Creado', 'error' => 0,
+                            'key'=>$resultMarca, 'value' => $term];
+            }
+        } else {
+            $response = ['mensaje' => 'Error al crear el registro', 'error' => -1];
+        }
+        
+        echo json_encode($response);
+    }
+
+    public function addMedidas($marca = null) {
+        $response = array();
+        
+        $request_body = file_get_contents('php://input'); 
+        $data = json_decode($request_body);
+        $type = clean($data->_type);
+
+        if($type === 'addMedidas'){
+            $this->load->model('Medidas_model');
+            $term = clean($data->_term);
+            $term = ucwords($term);
+            $result = $this->Medidas_model->sql("SELECT Nombre_Med FROM medidas WHERE Nombre_Med LIKE '%".$term."%'");
+            if($result){
+                $response = ['mensaje' => 'Ya se encuentra registrado', 'error' => -1];
+            } else {
+                $marca = [
+                    'Nombre_Med' => $term,
+                    'Primary_Usu' => $this->session->userdata('Primary_Usu')
+                ];
+                $resultMarca = $this->Medidas_model->insert($marca);
+                $response = ['mensaje' => 'Registro ' . $term . ' Creado', 'error' => 0,
+                            'key'=>$resultMarca, 'value' => $term];
+            }
+        } else {
+            $response = ['mensaje' => 'Error al crear el registro', 'error' => -1];
+        }
+        
+        echo json_encode($response);
+    }
+
+    public function addCategoriaItem($marca = null) {
+        $response = array();
+        
+        $request_body = file_get_contents('php://input'); 
+        $data = json_decode($request_body);
+        $type = clean($data->_type);
+
+        if($type === 'addCategoriaItem'){
+            $this->load->model('Categoria_item_model');
+            $term = clean($data->_term);
+            $term = ucwords($term);
+            $result = $this->Categoria_item_model->sql("SELECT Nombre_CatIte FROM categoria_item WHERE Nombre_CatIte LIKE '%".$term."%'");
+            if($result){
+                $response = ['mensaje' => 'Ya se encuentra registrado', 'error' => -1];
+            } else {
+                $marca = [
+                    'Nombre_CatIte' => $term,
+                    'Primary_Usu' => $this->session->userdata('Primary_Usu')
+                ];
+                $resultMarca = $this->Categoria_item_model->insert($marca);
+                $response = ['mensaje' => 'Registro ' . $term . ' Creado', 'error' => 0,
+                            'key'=>$resultMarca, 'value' => $term];
+            }
+        } else {
+            $response = ['mensaje' => 'Error al crear el registro', 'error' => -1];
+        }
+        
+        echo json_encode($response);
+    }
 }
 
 /* End of file Categoria_item.php */

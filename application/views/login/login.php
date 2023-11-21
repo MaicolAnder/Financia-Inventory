@@ -164,7 +164,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <input type="email" class="form-control" name="email" id="email" required autofocus placeholder="E-mail" value="<?php echo $email ?>">
                     <label class="label-control" for="email">Correo electrónico </label>
                 </div>
-
                 <label><?php echo form_error('user') ?></label>
                 <div class="form-label-group">
                     <input type="text" class="form-control" name="user" id="user" required  placeholder="Usuario" value="<?php echo $user ?>">
@@ -262,7 +261,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <?php echo form_open('auth/cheklogin'); ?>
                 <div class="form-label-group">
                     <input type="email" class="form-control" name="email" id="email" required autofocus placeholder="E-mail">
-                  <label class="label-control" for="email">Usuario</label>
+                  <label class="label-control" for="email">Correo electrónico</label>
                 </div>
 
                 <div class="form-label-group">
@@ -272,7 +271,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <div class="custom-control custom-checkbox mb-3">
                   <input type="checkbox" class="custom-control-input" id="customCheck1">
-                  <label class="custom-control-label" for="customCheck1">Remember password</label>
+                  <label class="custom-control-label" for="customCheck1">Recordar password</label>
                 </div>
                 <input type="submit" name="" value="Iniciar sessión" class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2">
                 

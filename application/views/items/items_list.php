@@ -148,12 +148,12 @@
                             </select>
 
                         </div>
-		
+                        <!--
                         <div class="form-group col-xs-12 col-sm-6 col-md-3 col-lg-3">
                             <label for="Id_Usu"><?=t('Id_Usu'); ?> <?php echo form_error('Id_Usu') ?></label>
                             <select name="Id_Usu" id="Id_Usu" class="form-control selectpicker" data-live-search="true">
                                 <option value="">Seleccione</option>
-                                <?php
+                                <?php /*
                                 foreach($all_usuario as $usuario)
                                 { 
                                     $print_value =  $usuario->Id_Usu;
@@ -162,10 +162,9 @@
                                         $selected = ($usuario->Id_Usu==$Id_Usu) ? 'selected':'';
                                     }
                                     echo '<option value="'.$usuario->Id_Usu.'"  '.$selected.'> '.$print_value.'</option>';
-                                } ?>
+                                } */ ?>
                             </select>
-
-                        </div>
+                        </div> -->
 	
                 </form>
             </div>
@@ -177,7 +176,7 @@
                         <th>#</th>
                         <th><i class="fas fa-pencil-alt"></i></th> 
                         <th><i class="fas fa-eye"></i></th>
-                        <th><i class="fas fa-trash-alt"></i></th>
+                        <!-- <th><i class="fas fa-trash-alt"></i></th> -->
                 		<th><?=t('Nombre_Ite'); ?></th>
                 		<th><?=t('Referencia_Ite'); ?></th>
                 		<th><?=t('Serie_Ite'); ?></th>
@@ -188,9 +187,7 @@
                         <th><?=t('Id_Med'); ?></th>
                 		<th><?=t('Imagen_Item'); ?></th>
                         <th><?=t('Id_Bod'); ?></th>
-                		<th><?=t('Id_Usu'); ?></th>
-                        <th><?=t('FechaRegistro_Ite'); ?></th>
-		
+                        <th><?=t('FechaRegistro_Ite'); ?></th>		
                     </tr>
                 </thead>
                 <tbody>
@@ -201,7 +198,7 @@
                         <td>#</td>
                         <td><i class="fas fa-pencil-alt"></i></td> 
                         <td><i class="fas fa-eye"></i></td>
-                        <td><i class="fas fa-trash-alt"></i></td>
+                        <!-- <td><i class="fas fa-trash-alt"></i></td> -->
 		<td></td>
 		<td></td>
 		<td></td>
@@ -213,8 +210,6 @@
 		<td></td>
 		<td></td>
 		<td></td>
-		<td></td>
-		
                     </tr>
                 </tfoot>
             </table>
@@ -302,12 +297,12 @@
                             "orderable": false,
                             "className" : "text-center"
                         },
-                        {
-                            "data" : "eliminar",
-                            "orderable": false,
-                            "className" : "text-center"
-                        },
-                        {"data": "Nombre_Ite"},{"data": "Referencia_Ite"},{"data": "Serie_Ite"},{"data": "Nombre_IteTip"},{"data": "Nombre_IteEst"},{"data": "Nombre_CatIte"},{"data": "Nombre_Mar"},{"data": "Nombre_Med"},{"data": "Imagen_Item"},{"data": "Nombre_Bod"},{"data": "Id_Usu"},{"data": "FechaRegistro_Ite"}
+                        //{
+                        //    "data" : "eliminar",
+                        //    "orderable": false,
+                        //    "className" : "text-center"
+                        //},
+                        {"data": "Nombre_Ite"},{"data": "Referencia_Ite"},{"data": "Serie_Ite"},{"data": "Nombre_IteTip"},{"data": "Nombre_IteEst"},{"data": "Nombre_CatIte"},{"data": "Nombre_Mar"},{"data": "Nombre_Med"},{"data": "Imagen_Item"},{"data": "Nombre_Bod"},{"data": "FechaRegistro_Ite"}
                         
                     ],
                     order: [[0, 'desc']],
