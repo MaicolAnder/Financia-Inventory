@@ -211,8 +211,14 @@ class Lista_precios extends CI_Controller
         $row = $this->Lista_precios_model->get_by_id($id);
 
         if ($row) {
-            $this->Lista_precios_model->delete($id);
-            $this->session->set_flashdata('message', 'Registro eliminado exitosamente');
+            $this->load->model('Precios_item_model');
+            $itemsAssos = $this->Precios_item_model->get_foreing_Id_ListPre('*',['lista_precios.Id_ListPre' => $id]);
+            if(empty($itemsAssos)) {
+                $this->Lista_precios_model->delete($id);
+                $this->session->set_flashdata('message', 'Registro eliminado exitosamente');
+            } else {
+                $this->session->set_flashdata('message', 'El registro no se puede eliminar, asociado a una ' . t('Id_ListPre'));
+            }
             redirect(site_url('lista_precios'));
         } else {
             $this->session->set_flashdata('message', 'Registro no encontrado');

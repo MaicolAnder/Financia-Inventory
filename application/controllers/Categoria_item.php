@@ -19,7 +19,7 @@ class Categoria_item extends CI_Controller
         is_login(); // Verifica login de usuario
         $this->load->model('Categoria_item_model');
         $this->load->library('form_validation');        
-	$this->load->library('datatables');
+	    $this->load->library('datatables');
     }
 
     public function index()
@@ -44,7 +44,7 @@ class Categoria_item extends CI_Controller
             }
         }
 
-        // Crear botones y links en la tablas
+        // Crear botones  ylinks en la tablas
         $links = array(
             array(
                 'name_link'=>'Otro boton',
@@ -206,8 +206,15 @@ class Categoria_item extends CI_Controller
         $row = $this->Categoria_item_model->get_by_id($id);
 
         if ($row) {
-            $this->Categoria_item_model->delete($id);
-            $this->session->set_flashdata('message', 'Registro eliminado exitosamente');
+            $this->load->model('Items_model');
+            $itemsAssos = $this->Items_model->get_foreing_Id_CatIte('*',['items.Id_CatIte' => $id]);
+            
+            if(empty($itemsAssos)) {
+                $this->Categoria_item_model->delete($id);
+                $this->session->set_flashdata('message', 'Registro eliminado exitosamente');
+            } else {
+                $this->session->set_flashdata('message', 'El registro no se puede eliminar, asociado a un ' . t('Id_Ite'));
+            }
             redirect(site_url('categoria_item'));
         } else {
             $this->session->set_flashdata('message', 'Registro no encontrado');

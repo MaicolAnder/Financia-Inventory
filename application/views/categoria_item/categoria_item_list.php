@@ -51,7 +51,7 @@
                         <th>#</th>
                         <th><i class="fas fa-pencil-alt"></i></th> 
                         <th><i class="fas fa-eye"></i></th>
-                        <!--<th><i class="fas fa-trash-alt"></i></th>-->
+                        <th><i class="fas fa-trash-alt"></i></th>
                         
 		<th><?=t('Nombre_CatIte'); ?></th>
 		<th><?=t('FechaRegistro_CatIte'); ?></th>
@@ -67,7 +67,7 @@
                         <td>#</td>
                         <td><i class="fas fa-pencil-alt"></i></td> 
                         <td><i class="fas fa-eye"></i></td>
-                        <!-- <td><i class="fas fa-trash-alt"></i></td> -->
+                        <td><i class="fas fa-trash-alt"></i></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -159,11 +159,11 @@
                             "orderable": false,
                             "className" : "text-center"
                         },
-                        /*{
+                        {
                             "data" : "eliminar",
                             "orderable": false,
                             "className" : "text-center"
-                        },*/
+                        },
                         {"data": "Nombre_CatIte"},{"data": "FechaRegistro_CatIte"},{"data": "Estado_CatIte"}
                         
                     ],

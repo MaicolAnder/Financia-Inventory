@@ -348,32 +348,34 @@
 
         var datosJSON = JSON.stringify(datos);
 
-        // Creamos un nuevo objeto XMLHttpRequest
-        var xhr = new XMLHttpRequest();
+        if(term){
+            // Creamos un nuevo objeto XMLHttpRequest
+            var xhr = new XMLHttpRequest();
 
-        // Configuramos la petición como POST a la URL deseada
-        xhr.open("POST", '<?=site_url('getresult/')?>'+ type, true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onreadystatechange = function () {
-            // Si la petición fue exitosa (estado 4) y el servidor respondió con éxito (código 200)
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // Manejar la respuesta del servidor
-                response = JSON.parse(xhr.responseText);
-                if(response.error == 0){
-                    const sel = document.getElementById(element);
+            // Configuramos la petición como POST a la URL deseada
+            xhr.open("POST", '<?=site_url('getresult/')?>'+ type, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                // Si la petición fue exitosa (estado 4) y el servidor respondió con éxito (código 200)
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Manejar la respuesta del servidor
+                    response = JSON.parse(xhr.responseText);
+                    if(response.error == 0){
+                        const sel = document.getElementById(element);
 
-                    const opt = document.createElement("option");
-                    opt.value = response.key;
-                    opt.text = response.value;
-                    opt.setAttribute("selected", "selected");
-                    sel.add(opt, sel.options[1]);
-                    $('#'+element).selectpicker('refresh');
-                } else {
-                    mensaje(response.mensaje);
+                        const opt = document.createElement("option");
+                        opt.value = response.key;
+                        opt.text = response.value;
+                        opt.setAttribute("selected", "selected");
+                        sel.add(opt, sel.options[1]);
+                        $('#'+element).selectpicker('refresh');
+                    } else {
+                        mensaje(response.mensaje);
+                    }
                 }
-            }
-        };
-        xhr.send(datosJSON);
+            };
+            xhr.send(datosJSON);
+        }
     }
 
 </script>

@@ -268,11 +268,14 @@ class Bodegas extends CI_Controller
         $row = $this->Bodegas_model->get_by_id($id);
 
         if ($row) {
-            try {
+            $this->load->model('Items_model');
+            $itemsAssos = $this->Items_model->get_foreing_Id_Bod('items.Id_Bod',['items.Id_Bod' => $id]);
+            
+            if(empty($itemsAssos)) {
                 $this->Bodegas_model->delete($id);
                 $this->session->set_flashdata('message', 'Registro eliminado exitosamente');
-            } catch (Exception $th) {
-                $this->session->set_flashdata('message', 'El registro no se puede eliminar, inactivelo de ser requerido');
+            } else {
+                $this->session->set_flashdata('message', 'El registro no se puede eliminar, esta asociado a un ' . t('Id_Ite'));
             }
             redirect(site_url('bodegas'));
         } else {
