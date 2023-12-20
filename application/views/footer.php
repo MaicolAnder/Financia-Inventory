@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?=js('jquery-ui.js')?>
 <?=js('select2.min.js')?> 
 <?=js('chart.min.js')?> 
-
+<?=js('print.min.js')?>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#sidebar").mCustomScrollbar({

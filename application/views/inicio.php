@@ -21,9 +21,9 @@
 						<div class="border rounded panel-white">
 							<div class="d-flex border-bottom p-3 w-100 align-items-center">
 								<h3 class="h5 mr-auto mb-0"><?= t('income') ?></h3>
-								<p class="badge badge-success mb-0">Mensual</p>
+								<p class="badge badge-success mb-0">Hoy</p>
 							</div>
-							<p class="px-3 pt-4 h3">108,200</p>
+							<p class="px-3 pt-4 h3"><?=number_format($income, 2);?></p>
 							<div class="d-flex px-3 w-100">
 								<p class="mr-auto">Total <?= t('income') ?></p>
 								<p class="text-success d-flex align-items-center"><img src="placeholder/icons/level-up.svg" height="20" width="20" alt=""> 82%</p>
@@ -34,11 +34,11 @@
 						<div class="border rounded panel-white">
 							<div class="d-flex border-bottom p-3 w-100 align-items-center">
 								<h3 class="h5 mr-auto mb-0"><?= t('expenses') ?></h3>
-								<p class="badge badge-success mb-0">Mensual</p>
+								<p class="badge badge-success mb-0">Hoy</p>
 							</div>
-							<p class="px-3 pt-4 h3">128,430</p>
+							<p class="px-3 pt-4 h3"><?=number_format($expenses, 2);?></p>
 							<div class="d-flex px-3 w-100">
-								<p class="mr-auto">New <?= t('expenses') ?></p>
+								<p class="mr-auto">Total <?= t('expenses') ?></p>
 								<p class="text-success d-flex align-items-center"><img src="placeholder/icons/level-up.svg" height="20" width="20" alt=""> 32%</p>
 							</div>
 						</div>

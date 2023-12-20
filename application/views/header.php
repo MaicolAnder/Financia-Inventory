@@ -31,6 +31,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <?= css('jquery-ui.css') ?>
     <?= css('desing.css') ?>
     <?= css('chart.min.css') ?>
+    <?= css('print.min.css')?>
     <script type="text/javascript">
         const base_url = '<?= site_url(); ?>';
     </script>

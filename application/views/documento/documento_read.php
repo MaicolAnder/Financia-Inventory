@@ -1,16 +1,33 @@
-
+<script>
+    function printDiv(nombreDiv) {
+     /*var contenido= document.getElementById(nombreDiv).innerHTML;
+     var contenidoOriginal= document.body.innerHTML;
+     document.body.innerHTML = contenido;
+     window.print();
+     document.body.innerHTML = contenidoOriginal;*/
+     printJS({
+        printable: nombreDiv,
+        type: 'html',
+        targetStyles: ['*']
+    })
+     
+}
+</script>
 <div class="card">
     <!-- <form> -->
     <div class="card-header">
         <!-- <h2 style="margin-top:0px">Documento Read</h2> -->
-        <h5 class="text-left" style="margin-top:0px"><?php echo $page ?> <i class="fas fa-angle-down" style="float: right;"></i></h5>
+        <h5 class="text-left" style="margin-top:0px"><?php echo $page ?><i class="fas fa-angle-down" style="float: right;"></i></h5>
     </div>
     <div class="text-center" style="margin-top: 0px"  id="message">              
-        <?php echo $this->session->userdata('message') <> '' ? '<div class="alert alert-info alert-dismissible fade show" role="alert" style="border-radius: .0rem;"><strong>'.$this->session->userdata('message').'</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>' : ''; ?>
+    <?php echo $this->session->userdata('message') <> '' ? '<div class="alert alert-info alert-dismissible fade show" role="alert" style="border-radius: .0rem;"><strong>'.$this->session->userdata('message').'</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>' : ''; ?>
+    </div>
+    <div>
+        <button type="button" class="btn btn-success" onclick="printDiv('areaImprimir')" value="Documento">Imprimir</button>
     </div>
     <div class="card-body">
         
-        <div class="container">
+        <div id="areaImprimir" class="container" >
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -21,52 +38,49 @@
                                 </div>
                             </div> -->
 
-                            <div class="row pb-5 p-5">
-                                <div class="col-md-2">
+                            <div class="row pb-2 p-2">
+                                <div class="col-md-2 col-xs-2 text-center">
                                     <img src="<?=site_url('assets/img/logos/facturacion_Financia.png');?>" width=80%">
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-5 col-xs-5">
                                     <p class="font-weight-bold mb-2"><?=t('Id_Per');?></p>
                                     <p class="mb-0"><small class="text-muted">Nombres:</small> <?=$Nombres;?></p>
                                     <p class="mb-0"><small class="text-muted">Direcció:</small> <?=$Direccion_Per;?></p>
                                     <p class="mb-0"><small class="text-muted">Municipio:</small> <?=$Nombre_Num;?></p>
                                     <p class="mb-0"><small class="text-muted">Tel:</small> <?=$TelCelular_Per;?></p>
                                 </div>
-                                <div class="col-md-3 text-left">
+                                <div class="col-md-5 col-xs-5 text-left">
                                     <p class="font-weight-bold mb-1">Documento</p>
-                                    <p class="mb-0"><small class="text-muted">Tipo:</small> <span class="badge badge-warning"><?=$Nombre_DocTip;?></span></p>
-                                    <p class="mb-0"><small class="text-muted">No.</small> <?=$Numero_Doc;?></p>
-                                    <p class="mb-0"><small class="text-muted">Fecha</small> <?=date('Y-m-d', strtotime($FechaDocumento_Doc));?></p>
-                                    <p class="mb-0"><small class="text-muted">Vencimiento</small> <?=date('Y-m-d', strtotime($FechaVencimiento_Doc));?></p>
-                                </div>
-
-                                <div class="col-md-3 text-left">
-                                    <p class="font-weight-bold mb-2">Detalle</p>
-                                    <p class="mb-0"><small class="text-muted">Por:</small> <?=$Id_Usu;?></p>
+                                    <p class="mb-0"><small class="text-muted">Tipo:</small> <span class="badge badge-warning"><?=$Nombre_DocTip;?></span>
+                                    <small class="text-muted">No.</small> <?=$Numero_Doc;?></p>
                                     <p class="mb-0"><small class="text-muted">Termino pago:</small> <?=$Nombre_TerPag;?></p>
+                                    <p class="mb-0"><small class="text-muted">Fecha</small> <?=date('Y-m-d', strtotime($FechaDocumento_Doc));?>
+                                    <small class="text-muted">Vencimiento</small> <?=date('Y-m-d', strtotime($FechaVencimiento_Doc));?></p>
                                     <p class="mb-0"><small class="text-muted">Estado:</small> <span class="badge badge-info"><?=$Nombre_DocEst;?></span></p>
-                                    
+                                </div>
+                                <div class="col-md-12 col-xs-12 text-center">
+                                    <p class="font-weight-bold mb-2">Detalle Por:</small> <?=$Id_Usu;?></p>
                                 </div>
                             </div>
 
                             <div class="row p-1">
-                                <div class="col-md-12 table-responsive">
+                                <div class="col-md-12 col-xs-12 table-responsive">
                                     <table class="table table-hover">
                                         <thead class="text-center">
-                                            <th>#</th>
-                                            <th style="width: 300px;"><?=t('Id_Ite'); ?></th>
+                                            <th >#</th>
+                                            <th ><?=t('Id_Ite'); ?></th>
                                             <?php
                                             if ($type == 'expenses') { ?>
-                                                <th style="width: 120px;"><?=t('Id_Med'); ?></th>
-                                                <th style="width: 120px;"><?=t('Id_Bod'); ?></th>
+                                                <th ><?=t('Id_Med'); ?></th>
+                                                <th ><?=t('Id_Bod'); ?></th>
                                             <?php }
                                             ?>
-                                            <th style="width: 150px;"><?=t('Costo_Kar'); ?></th>
-                                            <th style="width: 60px;"><?=t('Descuento_Kar'); ?></th>
-                                            <th style="width: 100px;"><?=t('Id_Imp'); ?></th>
-                                            <th style="width: 100px;"><?=t('Cantidad_Kar'); ?></th>
+                                            <th ><?=t('Costo_Kar'); ?></th>
+                                            <th ><?=t('Descuento_Kar'); ?></th>
+                                            <th ><?=t('Id_Imp'); ?></th>
+                                            <th ><?=t('Cantidad_Kar'); ?></th>
                                             <th><?=t('Observacion_Kar'); ?></th>
-                                            <th style="width: 150px;"><?=t('Subtotal'); ?></th>                  
+                                            <th ><?=t('Subtotal'); ?></th>                  
                                             <?php if ($type == 'income') { ?>
                                                 <th><?=t('Aceptado_Kar'); ?></th>
                                             <?php } ?>

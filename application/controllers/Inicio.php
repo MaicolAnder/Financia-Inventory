@@ -22,12 +22,16 @@ class Inicio extends CI_Controller {
 
 		$this->load->model('Vw_persona_model');
 		$this->load->model('Vw_usuario_model');
+		$this->load->model('Items_model');
 
 		$data['fecha'] = $this->fecha(date('d-m-Y H:i:s'));
         $persona_data = $this->Vw_persona_model->get_by_id($this->session->userdata('Id_Per'));
         $data['Per_Nombres'] = $persona_data->Nombre1_Per." ". $persona_data->Nombre2_Per." ". $persona_data->Apeliido1_Per." ".$persona_data->Apellido2_Per;
+		$income = $this->Items_model->sql("SELECT SUM(td.Valor_TranDet * td.Cantidad_TranDet) AS ingreso FROM `transaccion_detalle` td INNER JOIN transacciones t ON td.Id_Tran = t.Id_Tran WHERE t.Primary_Usu = 1 AND td.Id_TranDetEst = 1 AND t.FechaRegistro_Tran >= NOW() - INTERVAL 1 DAY AND td.FactorMoviemiento IN (1,0)");
+		$data['income'] = ($income[0]->ingreso);
 
-
+		$expenses = $this->Items_model->sql("SELECT SUM(td.Valor_TranDet * td.Cantidad_TranDet) AS ingreso FROM `transaccion_detalle` td INNER JOIN transacciones t ON td.Id_Tran = t.Id_Tran WHERE t.Primary_Usu = 1 AND td.Id_TranDetEst = 1 AND t.FechaRegistro_Tran >= NOW() - INTERVAL 1 DAY AND td.FactorMoviemiento = -1");
+		$data['expenses'] = ($expenses[0]->ingreso);
 
         $this->load->view('layouts/main',$data);
 	}
